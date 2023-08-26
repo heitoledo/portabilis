@@ -1,0 +1,28 @@
+<h2>New user</h2>
+<%= form_for User.new, url: create_user_path, method: :post do |f| %>
+  <tr class="bg-white border-b-1">
+    <td class="px-6 py-4">
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </td>
+    <td class="px-6 py-4">
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+    </td>
+    <td class="px-6 py-4">
+      <%= f.label :password %>
+      <%= f.text_field :password %>
+    </td>
+    <td class="px-6 py-4">
+      <%= f.label :active %>
+      <%= f.check_box :active %>
+    </td>
+    <td class="px-6 py-4">
+      <%= f.label :role %>
+      <%= f.select :role, @roles %>
+    </td>
+    <td class="px-6 py-4">
+      <%= f.submit %>
+    </td>
+  </tr>
+<% end %>

@@ -1,0 +1,20 @@
+<%= form_with model: @user do |f| %>
+  <tr class="bg-white border-b-1">
+    <td class="px-6 py-4">
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </td>
+    <td class="px-6 py-4">
+      <%= f.label :active %>
+      <%= f.check_box :active %>
+    </td>
+    <td class="px-6 py-4">
+      <%= f.label :role %>
+      <%= f.select :role, @roles %>
+    </td>
+    <td class="px-6 py-4">
+      <%= f.submit %>
+    </td>
+  </tr>
+<% end %>
+
