@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_user, except: [:index, :new, :create]
-  before_action :set_roles_options, only: [:edit, :new]
+  before_action :set_roles_options, only: [:edit, :new, :create]
 
   def index
     @users = User.all
@@ -9,22 +9,30 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    authorize @user
   end
 
   def create
     @user = User.new(user_params)
+    authorize @user
 
-    if @user.save!
-      redirect_to root_path, notice: 'Created successfully!'
-    else
-      render :new
+    respond_to do |format|
+      if @user.save
+        format.html { redirect_to root_path, notice: 'Created successfully!' }
+      else
+        format.html { render :new, status: :unprocessable_entity}
+      end
     end
   end
 
 
-  def edit;end
+  def edit
+    authorize @user
+  end
 
   def update
+    authorize @user
+
     if @user.update!(user_params)
       redirect_to root_path, notice: 'Updated successfully!'
     else
@@ -33,6 +41,8 @@ class UsersController < ApplicationController
   end
 
   def destroy
+    authorize @user
+
     @user.destroy!
 
     redirect_to root_path, notice: 'Deleted successfully!'
