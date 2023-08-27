@@ -27,6 +27,7 @@ gem "tailwindcss-rails", "~> 2.0"
 
 group :development, :test do
   gem 'byebug'
+  gem "factory_bot_rails"
 end
 
 group :development do
@@ -46,4 +47,5 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
   gem 'rspec-rails'
+  gem "faker", "~> 3.2"
 end
