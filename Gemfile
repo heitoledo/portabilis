@@ -18,6 +18,7 @@ gem 'devise'
 gem 'devise-jwt'
 gem 'pundit'
 gem "tailwindcss-rails", "~> 2.0"
+gem 'ransack'
 
 # Use Sass to process CSS
 # gem "sassc-rails"

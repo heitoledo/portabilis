@@ -1,0 +1,14 @@
+<%= search_form_for @q do |f| %>
+  <%= f.label :name %>
+  <%= f.search_field :name_cont %>
+
+  <%= f.label :email %>
+  <%= f.search_field :email_cont %>
+
+  <%= f.label :active %>
+  <%= f.select :active_eq, [['Active', true], ['Inactive', false]], include_blank: 'All' %>
+
+  <%= f.label :role %>
+  <%= f.select :role_eq, [['User', 0], ['Admin', 1]], include_blank: 'All' %>
+  <%= f.submit %>
+<% end %>

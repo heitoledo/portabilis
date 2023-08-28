@@ -4,7 +4,8 @@ class UsersController < ApplicationController
   before_action :set_roles_options, only: [:edit, :new, :create]
 
   def index
-    @users = User.all
+    @q = User.ransack(params[:q])
+    @users = @q.result
   end
 
   def new

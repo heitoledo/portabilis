@@ -4,6 +4,7 @@
   <% end %>
   <p class="text-center text-slate-700 text-4xl m-10">Users</p>
   <div class="relative overflow-x-auto w-full mx-auto">
+    <%= render 'search' %>
     <% if UserPolicy.new(current_user, User.new).new? %>
       <p class="mx-auto text-center mb-3 ml-60">
         <%= link_to 'New User', new_user_path, id: 'new_user', class: "text-md font-medium text-blue-600 hover:underline ml-80" %>
@@ -12,10 +13,10 @@
     <table class="text-sm text-left text-gray-500 mx-auto rounded-lg p-10 shadow-lg">
       <thead class="text-xs text-gray-700 uppercase bg-gray-100">
         <tr>
-          <th scope="col" class="px-6 py-3">Name</th>
-          <th scope="col" class="px-6 py-3">Email</th>
-          <th scope="col" class="px-6 py-3">Role</th>
-          <th scope="col" class="px-6 py-3">Status</th>
+          <th scope="col" class="px-6 py-3"><%= sort_link(@q, :name, 'Name') %></th>
+          <th scope="col" class="px-6 py-3"><%= sort_link(@q, :email, 'Email') %></th>
+          <th scope="col" class="px-6 py-3"><%= sort_link(@q, :role, 'Role') %></th>
+          <th scope="col" class="px-6 py-3"><%= sort_link(@q, :active, 'Status') %></th>
           <th scope="col" class="px-6 py-3"></th>
         </tr>
       </thead>

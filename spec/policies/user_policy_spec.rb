@@ -6,7 +6,7 @@ describe UserPolicy, type: :policy do
 
   subject { described_class }
 
-  permissions :edit?, :new?, :update?, :deactivate?, :delete? do
+  permissions :edit?, :new?, :create? :update?, :deactivate?, :delete? do
     it { is_expected.to permit(admin) }
     it { is_expected.to_not permit(user) }
   end

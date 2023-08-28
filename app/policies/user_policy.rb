@@ -7,6 +7,11 @@ class UserPolicy < ApplicationPolicy
     edit?
   end
 
+  def create?
+    edit?
+  end
+
+
   def update?
     edit?
   end
