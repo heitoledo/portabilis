@@ -1,14 +1,25 @@
 <%= search_form_for @q do |f| %>
-  <%= f.label :name %>
-  <%= f.search_field :name_cont %>
-
-  <%= f.label :email %>
-  <%= f.search_field :email_cont %>
-
-  <%= f.label :active %>
-  <%= f.select :active_eq, [['Active', true], ['Inactive', false]], include_blank: 'All' %>
-
-  <%= f.label :role %>
-  <%= f.select :role_eq, [['User', 0], ['Admin', 1]], include_blank: 'All' %>
-  <%= f.submit %>
+  <div class="grid grid-cols-5 gap-2 items-center">
+    <div class="p-3 ml-11">
+      <%= f.label :name %><br>
+      <%= f.search_field :name_cont %>
+    </div>
+    <div class="p-3 ml-11">
+      <%= f.label :email %><br>
+      <%= f.search_field :email_cont %>
+    </div>
+    <div class="p-3 ml-11 col-span-3 grid grid-cols-3 gap-2">
+      <div>
+        <%= f.label :active %><br>
+        <%= f.select :active_eq, [['Active', true], ['Inactive', false]], include_blank: 'All' %>
+      </div>
+      <div class="mr-11">
+        <%= f.label :role %><br>
+        <%= f.select :role_eq, [['User', 0], ['Admin', 1]], include_blank: 'All' %>
+      </div>
+      <div class="p-5 mr-11">
+        <%= f.submit %>
+      </div>
+    </div>
+  </div>
 <% end %>

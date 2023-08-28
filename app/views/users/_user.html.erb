@@ -7,7 +7,7 @@
     <% if UserPolicy.new(current_user, user).edit? %>
       <%= link_to 'Edit', edit_user_path(user), id: "edit_user_#{user.id}", class: "focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-4 py-2 mr-2 mb-2" %>
     <% end %>
-    <% if UserPolicy.new(current_user, user).delete? %>
+    <% if UserPolicy.new(current_user, user).destroy? %>
       <%= link_to 'Destroy', user, id: "delete_user_#{user.id}", data: { turbo_method: :delete }, class: "focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2 mb-2" %>
     <% end %>
   </td>

@@ -6,31 +6,37 @@
   </ul>
 <% end %>
 
-<h2>New user</h2>
-<%= form_for User.new, url: create_user_path, method: :post do |f| %>
-  <tr class="bg-white border-b-1">
-    <td class="px-6 py-4">
-      <%= f.label :name %>
-      <%= f.text_field :name %>
-    </td>
-    <td class="px-6 py-4">
-      <%= f.label :email %>
-      <%= f.text_field :email %>
-    </td>
-    <td class="px-6 py-4">
-      <%= f.label :password %>
-      <%= f.text_field :password %>
-    </td>
-    <td class="px-6 py-4">
-      <%= f.label :active %>
-      <%= f.check_box :active %>
-    </td>
-    <td class="px-6 py-4">
-      <%= f.label :role %>
-      <%= f.select :role, @roles %>
-    </td>
-    <td class="px-6 py-4">
-      <%= f.submit %>
-    </td>
-  </tr>
-<% end %>
+<div class="w-full mx-auto max-w-lg h-auto bg-white shadow-md rounded px-8 pt-11 pb-8 mt-11 mb-11">
+  <h1 class="text-gray-900 text-2xl text-center mb-5 font-medium title-font">New User</h1>
+  <%= form_for User.new, url: create_user_path, method: :post do |f| %>
+    <div class="relative mb-4 field">
+      <%= f.label :name, class: "leading-7 text-sm text-gray-600" %><br />
+      <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "w-full bg-white rounded border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" %>
+    </div>
+    <div class="relative mb-4 field">
+      <%= f.label :email, class: "leading-7 text-sm text-gray-600" %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "w-full bg-white rounded border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" %>
+    </div>
+    <div class="relative mb-4 field">
+      <%= f.label :password, class: "leading-7 text-sm text-gray-600" %><br />
+      <%= f.password_field :password, autofocus: true, autocomplete: "new-password", class: "w-full bg-white rounded border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" %>
+    </div>
+    <div class="relative mb-4 field">
+      <div class="grid grid-cols-2">
+        <div>
+          <%= f.label :active, class: "leading-7 text-sm text-gray-600" %><br>
+          <%= f.check_box :active %>
+        </div>
+        <div>
+          <%= f.label :role, class: "leading-7 text-sm text-gray-600" %><br>
+          <%= f.select :role, @roles %>
+        </div>
+      </div>
+    </div>
+    <div class="relative mt-10 actions text-center">
+      <%= f.submit "Create User", class: "text-white bg-blue-500 border-0 py-2 px-6 focus:outline-none hover:bg-blue-600 rounded text-lg" %>
+      <%= link_to 'Back', root_path, class: "text-md font-medium text-blue-600 hover:underline align-right" %>
+    </div>
+  <% end %>
+</div>
+

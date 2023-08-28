@@ -20,7 +20,7 @@ class UserPolicy < ApplicationPolicy
     edit?
   end
 
-  def delete?
+  def destroy?
     edit?
   end
 end
