@@ -5,7 +5,6 @@ ruby "3.2.2"
 
 gem "rails", "~> 7.0.7"
 gem "sprockets-rails"
-gem "sqlite3", "~> 1.4"
 gem "puma", "~> 5.0"
 gem "importmap-rails"
 gem "turbo-rails"
@@ -19,7 +18,8 @@ gem 'devise-jwt'
 gem 'pundit'
 gem "tailwindcss-rails", "~> 2.0"
 gem 'ransack'
-
+gem 'pg'
+gem 'actionpack-action_caching'
 # Use Sass to process CSS
 # gem "sassc-rails"
 

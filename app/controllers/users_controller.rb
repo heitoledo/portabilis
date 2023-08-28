@@ -3,6 +3,8 @@ class UsersController < ApplicationController
   before_action :set_user, except: [:index, :new, :create]
   before_action :set_roles_options, only: [:edit, :new, :create]
 
+  caches_action :index, expires_in: 1.hour
+
   def index
     @q = User.ransack(params[:q])
     @users = @q.result
